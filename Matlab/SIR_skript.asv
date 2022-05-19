@@ -78,7 +78,6 @@ title(titel,'Interpreter','latex','FontSize',22);
 legend('$$S$$','$$I$$','$$R$$ ','interpreter','latex','FontSize',22);
 
 %% odes23 SIR-Modell mit Impfungen
-%  Abbildung 3.1
 
 [t_VACC,S_VACC,I_VACC,R_VACC] = ode23s_impfung(T,S0,I0,R0,alpha,beta,gamma);
 figure('position',[10 10 800 400]);
@@ -99,7 +98,6 @@ title(titel,'Interpreter','latex','FontSize',22);
 legend('$$S$$','$$I$$','$$R$$ ','interpreter','latex','FontSize',22);
 
 %% Vergleich: keine Impfungen vs. Impfungen
-%  Abbildung 3.2
 
 [t_VACC1,~,I_VACC1,~] = ode23s_impfung(T,S0,I0,R0,alpha,beta,gamma);
 [t_VACC2,~,I_VACC2,~] = ode23s_impfung(T,S0,I0,R0,2*alpha,beta,gamma);
@@ -160,8 +158,6 @@ titel = strcat('$$\beta = ',num2str(beta),...
 title(titel,'Interpreter','latex','FontSize',22);
 legend('$$S^*$$','$$\tilde S$$','$$S$$','interpreter','latex','FontSize',22);
 %% Monte Carlo Simulation (Euler-Maruyama)
-%  Abbildung 3.3
-
 M = 100;
 m = T * 2*10;
 [t_MC,S_MC,I_MC,R_MC] = em_mc(t0,T,[S0;I0],beta,gamma,N,m,M);
@@ -184,10 +180,8 @@ title(titel,'Interpreter','latex','FontSize',22);
 legend('$$S$$','$$I$$','$$R$$','interpreter','latex','FontSize',22);
 
 %% Vergleich deterministisch vs. stochastisch
-%  Abbildung 3.4
-
 M = 100;
-m = T * 20;
+m = T * 2;
 [t_RK,S_RK,I_RK,R_RK] = ode23s_solver(T,S0,I0,R0,beta,gamma);
 [t_MC,S_MC,I_MC,R_MC] = em_mc(t0,T,[S0;I0],beta,gamma,N,m,M);
 figure('position',[10 10 800 400]);

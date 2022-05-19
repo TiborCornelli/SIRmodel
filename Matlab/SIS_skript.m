@@ -8,6 +8,7 @@ omega = 1/90; % Immunität von 90 Tagen
 psi = 0.1940;
 
 %% Lösung des SIS-Modells berechnen
+%  Abbildung 3.5
 
 [t,S,I] = sis(T,I0,N,omega,psi);
 I_inf = (psi - omega)*N/psi;
